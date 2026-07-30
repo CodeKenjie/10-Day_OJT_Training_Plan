@@ -1,5 +1,5 @@
 def substrings(string, dictionary)
-  clean_word = string.gsub(/[^a-zA-Z0-9\s]/, "")
+  clean_word = string.gsub(/[^a-zA-Z\s]/, "")
   words = clean_word.downcase.split(" ")
   word_count = Hash.new(0)
 
