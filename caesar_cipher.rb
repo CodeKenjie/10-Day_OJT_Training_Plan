@@ -1,9 +1,8 @@
 
 def caesar_cipher(string, key)
-
   encrypted = ""
   
-  string.each_char do | letter |
+  string.each_char do |letter|
     ascii = letter.ord
     encrypted_ascii = ascii + key
 
@@ -25,4 +24,3 @@ end
 puts caesar_cipher("COMPUTER", 7)
 puts caesar_cipher("computer", 7)
 puts caesar_cipher("Computer", 7)
-
