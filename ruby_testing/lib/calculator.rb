@@ -5,13 +5,13 @@ class Calculator
 
   def sub(a, b, *c)
     result = a - b
-    c.each { |num| result = result - num }
+    c.each { |num| result -= num }
     result
   end
 
   def mul(a, b, *c)
     result = a * b
-    c.each { |num| result = result * num }
+    c.each { |num| result *= num }
     result
   end
 
