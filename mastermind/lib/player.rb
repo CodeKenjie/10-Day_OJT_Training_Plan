@@ -13,8 +13,7 @@ class Player
         answer = gets.chomp.strip(" ")
         if valid(answer)
           answer_to_array = answer.split("")
-          answers = []
-          answer_to_array.each { |n| answers << n.to_i }
+          answers = answer_to_array.map(&:to_i)
           self.guess = answers
           self.guess
           break

@@ -20,6 +20,7 @@ class Game
           while attemps >= 0
             puts "guess the code [ 1 = #{self.colors[0]}, 2 = #{self.colors[1]}, 3 = #{self.colors[2]}, 4 = #{self.colors[3]} ]"
             player.take_a_guess
+            p self.code
             result = rate_guess(self.code, player.guess)
             puts result
             if guessed_correct?(self.code, player.guess)
