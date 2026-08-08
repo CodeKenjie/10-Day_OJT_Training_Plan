@@ -27,6 +27,87 @@ class HashMap
     end
   end
 
+  def get(key)
+    index = hash(key) % @capacity
+    buckets = @buckets[index]
+
+    return nil unless buckets
+
+    buckets.each do |item|
+      if item[0] == key
+        return item[1]
+      end
+    end
+  end
+
+  def has?(key)
+    index = hash(key) % @capacity
+    buckets = @buckets[index]
+
+    return nil unless buckets
+
+    buckets.each do |item|
+      return true if item[0] == key 
+    end
+
+    false
+  end
+
+  def remove(key)
+    index = hash(key) % @capacity
+    buckets = @buckets[index]
+
+    return nil unless buckets
+
+    value = nil
+
+    buckets.each do |item|
+      if item[0] == key
+        value = item[1]
+        buckets.delete(item)
+        @size -= 1
+        return value
+      end
+    end
+
+    nil
+  end
+
+  def length
+    @size
+  end
+
+  def clear 
+    @capacity = 16 
+    @size = 0 
+    @buckets = Array.new(@capacity)
+  end
+
+  def keys
+    arr = []
+    @buckets.each do |item|
+      next if item.nil?
+
+      item.each do |sub_item|
+        arr << sub_item[0]
+      end
+    end
+    arr
+  end
+
+  def entries
+    arr = []
+
+    @buckets.each do |item|
+      next if item.nil?
+      item.each do |sub_item|
+        arr << sub_item
+      end
+    end
+
+    arr
+  end
+
   private
 
   def hash(key)
